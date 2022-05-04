@@ -1,0 +1,15 @@
+body{
+background-image:url('back1.jpg');
+background-size:cover;
+}
+div{
+width:45%;
+height:210%;
+background:rgba(0,0,0,0.7);
+padding:20px;
+color:white;
+}
+table
+{
+color:white;
+}

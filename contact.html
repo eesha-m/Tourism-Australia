@@ -1,0 +1,91 @@
+<html>
+<head>
+<title>Contact Us</title>
+</head>
+<body style='background:#ccffff'>
+<center>
+<br>
+<table>
+<td align='center'>
+<form action='acknowledgement.html' method='post'>
+<fieldset>
+<legend align='center'>Personal Information</legend>
+<br>
+Name<br>
+<input type='text' name='name' maxlength='20' size='12' placeholder=' John Doe' required autofocus>
+<br><br>
+Email<br>
+<input type='email' name='emailid' placeholder='john.doe@gmail.com' required>
+<br><br>
+Gender<br>
+<input type='radio' name='gender' value='male' checked>Male
+<input type='radio' name='gender' value='female'>Female
+<input type='radio' name='gender' value='other'>Other
+<br><br>
+Mobile No.<br>
+<input type='tel' name='phone' pattern='[0-9]{10}' placeholder='9821441505' required>
+<br><br>
+Age<br>
+<input type='number' min='18' max='80'step='5' required>
+<br><br>
+Upload your passport copy proof<br>
+<input type='file' required>
+<br><br>
+State<br>
+<input list='state'>
+<datalist id='state'>
+<option value='Maharashtra'>
+<option value='Goa'>
+<option value='Rajasthan'>
+<option value='Gujarat'>
+<option value='UP'>
+<option value='Delhi'>
+<option value='West Bengal'>
+<option value='Karnataka'>
+</datalist>
+<br><br>
+City<br>
+<input list='city'>
+<datalist id='city'>
+<option value='Mumbai'>
+<option value='Pune'>
+<option value='Lucknow'>
+<option value='Agra'>
+<option value='Chennai'>
+</datalist>
+<br><br>
+Address<br>
+<textarea name='address' rows='6' cols='30' required>
+</textarea>
+<br><br>
+</fieldset>
+<br><br>
+<fieldset>
+<legend align='center'>Travel Information</legend>
+<br>
+Trip Dates<br>
+<input type='date' name='depart' placeholder='Depart' min='2022-01-01' max='2024-01-01' required> to 
+<input type='date' name='arrival' placeholder='Arrival' min='2022-01-01' max='2024-01-01' required>
+<br><br>
+Price affordability range (INR 1,00,000/- to INR 10,00,000/-)<br>
+<input type='range' name='range' min='1' max='10' step='1'>
+<br><br>
+Adult travellers<br>
+<input type='number' min='1' max='20'>
+<br><br>
+Travellers under 18<br>
+<input type='number' min='0' max='20'>
+<br><br>
+</fieldset>
+<br><br>
+<input type='checkbox' required> I agree with the privacy terms and conditions.
+<br><br>
+<input type='submit' value='Submit'>
+<input type='reset' value='Reset'>
+<br><br>
+</td>
+</form>
+</table>
+</center>
+</body>
+</html>

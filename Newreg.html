@@ -1,0 +1,305 @@
+<html>
+
+<head>
+	<link rel="stylesheet" type="text/css" href="regcss.css">
+	<title>Registration Page</title>
+	<script>
+		function verify() {
+			var fname = document.getElementById("fname");
+			var lname = document.getElementById("lname");
+			var email = document.getElementById("emailid");
+			var pwd = document.getElementById("pwd");
+			var country = document.getElementById("country");
+			var state = document.getElementById("state");
+			var city = document.getElementById("city");
+			var cc = document.getElementById("cc");
+			var mobile = document.getElementById("mobile");
+			var dob = document.getElementById("dob");
+
+			if (isAlphabet(fname, "Please enter letters only for your name")) {
+				if (isAlphabet(lname, "Please enter letters only for your name")) {
+					if (isGenderChecked("Please select your gender")) {
+						if (emailValidator(email, "Please enter valid emailid")) {
+							if (passwordValidator(pwd, 6, 8)) {
+								if (madeSelection(country, "Please choose a country")) {
+									if (madeSelection(state, "Please choose a state")) {
+										if (madeSelection(city, "Please choose a city")) {
+											if (madeSelection(cc, "Please choose a country code")) {
+												if (phoneValidator(mobile, "Please enter your mobile number")) {
+														if (ageValidator(age, 18, 60)) {
+															if(checkAgree("Please check the agreement box.")){
+															return true;
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			return false;
+		}
+		function isAlphabet(elem, helperMsg) {
+			var alphaExp = /^[a-zA-Z]+$/;
+			if (elem.value.match(alphaExp)) {
+				return true;
+			} else {
+				alert(helperMsg);
+				elem.focus();
+				return false;
+			}
+		}
+		function isGenderChecked(helperMsg) {
+			g = document.reg.gender;
+			if (g[0].checked == false && g[1].checked == false && g[2].checked == false) {
+				alert(helperMsg);
+				g[0].focus();
+				return false;
+			}
+			else {
+				return true;
+			}
+		}
+		function emailValidator(elem, helperMsg) {
+
+			var emailExp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+			if (elem.value.match(emailExp)) {
+				return true;
+			} else {
+				alert(helperMsg);
+				elem.focus();
+				return false;
+			}
+		}
+		function passwordValidator(elem, min, max) {
+			if (elem.value.length < min || elem.value.length > max) {
+				alert("Please enter a password of length between " + min + " and " + max + " characters");
+				elem.focus();
+				return false;
+			}
+			else {
+				return true;
+			}
+		}
+		function madeSelection(elem, msg) {
+			if (elem.value=='') {
+				alert(msg);
+				elem.focus();
+				return false;
+			}
+			else {
+				return true;
+			}
+		}
+		function phoneValidator(elem, msg) {
+			if (elem.value == '') {
+				alert(msg);
+				elem.focus();
+				return false;
+			}
+			else {
+				return true;
+			}
+		}
+
+		function dobValidator(elem, msg) {
+			if (elem.value == 'dd-mm-yyyy') {
+				alert(msg);
+				elem.focus()
+				return false;
+			}
+			else {
+				return true;
+			}
+		}
+		function ageValidator(elem, min, max) {
+			if (elem.value < min || elem.value > max) {
+				alert('You can only register between ages '+ min+ ' and '+max);
+				elem.focus();
+				return false;
+			}
+			return true;
+		}
+		function checkAgree(msg){
+			if(document.reg.agree.checked==false)
+			{
+				alert(msg);
+				return false;
+			}
+			return true;
+		}
+	</script>
+</head>
+
+<body>
+	<center>
+		<div>
+			<h1 align='center'>Sign Up</h1>
+			<table align='center'>
+				<tr>
+					<td>
+						<form action='Newlogin.html' method='post' name='reg'>
+							<fieldset>
+								<legend align='center'>Personal Information</legend><br>
+                                <table cellpadding="10">
+                                    <tr>
+                                        <td>Name:</td>
+                                        <td> 
+                                            <input type='text' placeholder='First name' id='fname'>
+								            <input type='text' placeholder='Last name' id='lname'>
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>Gender:</td>
+                                        <td>  
+                                            <input type='radio' value='m' name='gender'>Male
+                                            <input type='radio' value='f' name='gender'>Female
+                                            <input type='radio' value='o' name='gender'>Other
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>Email address:</td>
+                                        <td> 
+                                            <input type='text' id='emailid' placeholder='xyz@gmail.com'>
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>Password:</td>
+                                        <td> 
+                                            <input type='password' id='pwd'>
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>Country:</td>
+                                        <td> 
+                                            <select id='country'>
+                                                <option> </option>
+                                                <option>America</option>
+                                                <option>Austria</option>
+                                                <option>Africa</option>
+                                                <option>Bangladesh</option>
+                                                <option>Canada</option>
+                                                <option>Denmark</option>
+                                                <option>India</option>
+                                                <option>China</option>
+                                                <option>Pakistan</option>
+                                                <option>Russia</option>
+                                            </select>
+                                            
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>State:</td>
+                                        <td> 
+                                            <select id='state'>
+                                                <option> </option>
+                                                <option>Maharashtra</option>
+                                                <option>Gujarat</option>
+                                                <option>Karnataka</option>
+                                                <option>Andhra Pradesh</option>
+                                                <option>Arunachal Pradesh</option>
+                                                <option>Uttar Pradesh</option>
+                                                <option>Uttarakhand</option>
+                                            </select>
+                                            
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>City:</td>
+                                        <td> 
+                                            <select id='city'>
+                                                <option> </option>
+                                                <option>Mumbai</option>
+                                                <option>Kolkata</option>
+                                                <option>Chennai</option>
+                                                <option>Delhi</option>
+                                                <option>Goa</option>
+                                                <option>Agra</option>
+                                                <option>Pune</option>
+                                                </select>
+                                            
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>Phone Number:</td>
+                                        <td>
+                                        <select id='cc'>
+                                            <option> </option>
+                                            <option>+91</option>
+                                            <option>+92</option>
+                                            <option>+93</option>
+                                            <option>+45</option>
+                                            <option>+76</option>
+                                        </select>
+                                        <input type='text' id='mobile'>
+                                        
+                                        </td>      
+
+                                    </tr>
+                                    <tr>
+                                        <td>Date of Birth:</td>
+                                        <td>
+                                            <input type='date' id='dob'>
+                                            
+                                        </td>      
+
+                                    </tr>
+                                    <tr>
+                                        <td>Age:</td>
+                                        <td>
+                                            <input type='text' id='age' size='2'>
+								            
+                                        </td>      
+
+                                    </tr>
+                                    <tr>
+                                        <td>Upload your Passport:</td>
+                                        <td>
+                                            <input type='file' id='passport'>
+                                        </td>      
+
+                                    </tr>
+                                </table>
+								
+							</fieldset>
+
+							<br>
+							<fieldset>
+								<legend align='center'>Travel Information</legend><br>
+								Select any of the following add-on requirements: (optional)<br><br>
+								<input type='checkbox' name='reqmts'>Chaperone<br><br>
+								<input type='checkbox' name='reqmts'>Special Seating<br><br>
+								<input type='checkbox' name='reqmts'>Special diet <br><br>
+								<input type='checkbox' name='reqmts'>Handicapped accomodation<br><br>
+								Other:<br><textarea rows='5' cols='30'></textarea>
+
+							</fieldset>
+							<br>
+							<center>
+								<input type='checkbox' name='agree'> I Agree to Terms and Conditions
+
+								<br><br>
+								<input type="submit" value="Submit" onClick="return(verify());">
+								&nbsp;
+								<input type="reset" value="Reset">
+							</center>
+						</form>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</center>
+</body>
+
+</html>
